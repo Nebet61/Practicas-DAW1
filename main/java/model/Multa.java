@@ -1,0 +1,51 @@
+package model;
+
+import java.util.Date;
+
+public class Multa extends Miembro {
+
+    private String descripcion;
+    private Date fecha;
+    private boolean pagada;
+    private double importe;
+
+    public Multa(String nombreMiembro, String descripcion, Date fecha, boolean pagada, double importe) {
+        super(nombreMiembro);
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.pagada = pagada;
+        this.importe = importe;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public boolean isPagada() {
+        return pagada;
+    }
+
+    public void setPagada(boolean pagada) {
+        this.pagada = pagada;
+    }
+
+    public double getImporte() {
+        return importe;
+    }
+
+    public void setImporte(double importe) {
+        this.importe = importe;
+    }
+}
