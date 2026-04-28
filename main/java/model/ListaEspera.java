@@ -6,7 +6,7 @@ public class ListaEspera {
 
     private Libro libro;
     private Date fechaSolicitud;
-    private String estado; // pendiente, notificado
+    private String estado;
 
     public ListaEspera(Libro libro, Date fechaSolicitud, String estado) {
         this.libro = libro;

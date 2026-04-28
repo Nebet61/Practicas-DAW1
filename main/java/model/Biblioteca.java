@@ -14,9 +14,9 @@ public class Biblioteca {
     public Biblioteca(int idBiblioteca, String nombre) {
         this.idBiblioteca = idBiblioteca;
         this.nombre = nombre;
-        this.usuarios = new ArrayList<>();
-        this.libros = new ArrayList<>();
-        this.bibliotecarios = new ArrayList<>();
+        this.usuarios = new ArrayList<Usuario>();
+        this.libros = new ArrayList<Libro>();
+        this.bibliotecarios = new ArrayList<Bibliotecario>();
     }
 
     public int getIdBiblioteca() {
