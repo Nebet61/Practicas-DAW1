@@ -3,16 +3,17 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Libro extends Miembro {
+public class Libro {
 
+    private int idLibro;
     private String ISBN;
     private String titulo;
     private String autor;
     private String materia;
     private List<Ejemplar> ejemplares;
 
-    public Libro(String nombreMiembro, String ISBN, String titulo, String autor, String materia) {
-        super(nombreMiembro);
+    public Libro(int idLibro, String ISBN, String titulo, String autor, String materia) {
+        this.idLibro = idLibro;
         this.ISBN = ISBN;
         this.titulo = titulo;
         this.autor = autor;
@@ -20,7 +21,6 @@ public class Libro extends Miembro {
         this.ejemplares = new ArrayList<>();
     }
 
-    // Atributo derivado: estado calculado a partir de los ejemplares
     public String getEstado() {
         for (Ejemplar e : ejemplares) {
             if (e.getEstado().equals("disp")) return "disp";
@@ -31,9 +31,16 @@ public class Libro extends Miembro {
         return "bloq";
     }
 
-    // Atributo derivado: número de ejemplares
     public int getNumEjemplares() {
         return ejemplares.size();
+    }
+
+    public int getIdLibro() {
+        return idLibro;
+    }
+
+    public void setIdLibro(int idLibro) {
+        this.idLibro = idLibro;
     }
 
     public String getISBN() {

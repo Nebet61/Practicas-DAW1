@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Historico extends Miembro {
+public class Historico {
 
+    private int idHistorico;
     private Date fechaAlta;
     private List<Prestamo> prestamos;
 
-    public Historico(String nombreMiembro, Date fechaAlta) {
-        super(nombreMiembro);
+    public Historico(int idHistorico, Date fechaAlta) {
+        this.idHistorico = idHistorico;
         this.fechaAlta = fechaAlta;
         this.prestamos = new ArrayList<>();
     }
 
-    // Esto es un atributo derivado y hace número de préstamos activos
     public int getPrestamosActivos() {
         int count = 0;
         for (Prestamo p : prestamos) {
@@ -24,15 +24,22 @@ public class Historico extends Miembro {
         return count;
     }
 
-    // Vale esto es un atributo derivado que suma total de multas
     public double getMultado() {
         double total = 0;
         for (Prestamo p : prestamos) {
-            if (p.getMulta() != null) {
+            if (p.getMulta() != null && !p.getMulta().isPagada()) {
                 total += p.getMulta().getImporte();
             }
         }
         return total;
+    }
+
+    public int getIdHistorico() {
+        return idHistorico;
+    }
+
+    public void setIdHistorico(int idHistorico) {
+        this.idHistorico = idHistorico;
     }
 
     public Date getFechaAlta() {

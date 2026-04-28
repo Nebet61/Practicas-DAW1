@@ -1,14 +1,24 @@
 package model;
 
-public class Ejemplar extends Miembro {
+public class Ejemplar {
 
+    private int idEjemplar;
     private String codigo;
-    private String estado; // disp, prest, bloq
+    private String estado;
+    private Prestamo prestamoActual;
 
-    public Ejemplar(String nombreMiembro, String codigo, String estado) {
-        super(nombreMiembro);
+    public Ejemplar(int idEjemplar, String codigo, String estado) {
+        this.idEjemplar = idEjemplar;
         this.codigo = codigo;
         this.estado = estado;
+    }
+
+    public int getIdEjemplar() {
+        return idEjemplar;
+    }
+
+    public void setIdEjemplar(int idEjemplar) {
+        this.idEjemplar = idEjemplar;
     }
 
     public String getCodigo() {
@@ -25,5 +35,13 @@ public class Ejemplar extends Miembro {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Prestamo getPrestamoActual() {
+        return prestamoActual;
+    }
+
+    public void setPrestamoActual(Prestamo prestamoActual) {
+        this.prestamoActual = prestamoActual;
     }
 }

@@ -3,17 +3,37 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuario extends Miembro {
+public class Usuario {
 
+    private int idUsuario;
+    private String nombre;
     private String DNI;
     private String cuentaBanco;
-    private List<Libro> listaEspera;
+    private Historico historico;
+    private List<ListaEspera> listaEspera;
 
-    public Usuario(String nombreMiembro, String DNI, String cuentaBanco) {
-        super(nombreMiembro);
+    public Usuario(int idUsuario, String nombre, String DNI, String cuentaBanco) {
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
         this.DNI = DNI;
         this.cuentaBanco = cuentaBanco;
         this.listaEspera = new ArrayList<>();
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDNI() {
@@ -32,11 +52,19 @@ public class Usuario extends Miembro {
         this.cuentaBanco = cuentaBanco;
     }
 
-    public List<Libro> getListaEspera() {
+    public Historico getHistorico() {
+        return historico;
+    }
+
+    public void setHistorico(Historico historico) {
+        this.historico = historico;
+    }
+
+    public List<ListaEspera> getListaEspera() {
         return listaEspera;
     }
 
-    public void addLibroEspera(Libro libro) {
-        listaEspera.add(libro);
+    public void addListaEspera(ListaEspera listaEspera) {
+        this.listaEspera.add(listaEspera);
     }
 }

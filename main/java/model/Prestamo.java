@@ -2,22 +2,31 @@ package model;
 
 import java.util.Date;
 
-public class Prestamo extends Miembro {
+public class Prestamo {
 
+    private int idPrestamo;
     private String estado;
     private Date fecha;
     private Date fechaDevolucion;
     private String codigo;
     private Ejemplar ejemplar;
-    private Multa multa; // puede no tener multa (0..1)
+    private Multa multa;
 
-    public Prestamo(String nombreMiembro, String estado, Date fecha, Date fechaDevolucion, String codigo, Ejemplar ejemplar) {
-        super(nombreMiembro);
+    public Prestamo(int idPrestamo, String estado, Date fecha, Date fechaDevolucion, String codigo, Ejemplar ejemplar) {
+        this.idPrestamo = idPrestamo;
         this.estado = estado;
         this.fecha = fecha;
         this.fechaDevolucion = fechaDevolucion;
         this.codigo = codigo;
         this.ejemplar = ejemplar;
+    }
+
+    public int getIdPrestamo() {
+        return idPrestamo;
+    }
+
+    public void setIdPrestamo(int idPrestamo) {
+        this.idPrestamo = idPrestamo;
     }
 
     public String getEstado() {
