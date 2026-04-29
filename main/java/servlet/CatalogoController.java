@@ -3,6 +3,7 @@ package servlet;
 import model.AccesoBD;
 import model.Libro;
 import model.Ejemplar;
+import model.Usuario;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,10 +33,28 @@ public class CatalogoController extends HttpServlet {
 
         List<Libro> libros = new ArrayList<>();
         List<String> materias = new ArrayList<>();
+        int numPrestamos = 0;
+
+        Usuario user = (Usuario) request.getSession().getAttribute("usuario");
 
         try {
             AccesoBD acceso = new AccesoBD();
             Connection con = acceso.getConexion();
+
+            con.prepareStatement(
+                "UPDATE prestamo SET estado = 'vencido' WHERE estado = 'activo' AND fecha_devolucion < CURDATE()"
+            ).executeUpdate();
+
+            if (user != null) {
+                PreparedStatement psCount = con.prepareStatement(
+                    "SELECT COUNT(*) FROM prestamo p JOIN historico h ON p.id_historico = h.id_historico WHERE h.id_usuario = ? AND p.estado = 'activo'"
+                );
+                psCount.setInt(1, user.getIdUsuario());
+                ResultSet rsCount = psCount.executeQuery();
+                if (rsCount.next()) numPrestamos = rsCount.getInt(1);
+                rsCount.close();
+                psCount.close();
+            }
 
             ResultSet rsMat = con.prepareStatement("SELECT DISTINCT materia FROM libro ORDER BY materia").executeQuery();
             while (rsMat.next()) {
@@ -102,6 +121,7 @@ public class CatalogoController extends HttpServlet {
         request.setAttribute("materias", materias);
         request.setAttribute("filtro", filtro);
         request.setAttribute("materia", materia);
+        request.setAttribute("numPrestamos", numPrestamos);
         request.setAttribute("view", "catalogo.jsp");
         request.setAttribute("estilo", "estilos/catalogo.css");
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);

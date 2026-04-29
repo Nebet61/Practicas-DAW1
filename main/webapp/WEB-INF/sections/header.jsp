@@ -18,7 +18,7 @@
                 </li>
                 <% if (user != null) { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mis préstamos</a>
+                    <a class="nav-link" href="<%=request.getContextPath()%>/misprestamos">Mis préstamos</a>
                 </li>
                 <% } %>
             </ul>

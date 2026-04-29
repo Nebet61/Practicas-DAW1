@@ -147,3 +147,56 @@
     font-size: 14px;
     margin-top: 20px;
 }
+
+.btn-prestamo {
+    background-color: #1B2A4A;
+    color: #F5F0E8;
+    border: none;
+    padding: 5px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.btn-prestamo:hover {
+    background-color: #243660;
+}
+
+.limite-prestamos {
+    font-size: 12px;
+    color: #b71c1c;
+    margin-top: 4px;
+}
+
+.aviso-prestamo {
+    padding: 10px 40px;
+    font-size: 14px;
+}
+
+.aviso-ok {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-bottom: 1px solid #c8e6c9;
+}
+
+.aviso-error {
+    background-color: #fbe9e7;
+    color: #b71c1c;
+    border-bottom: 1px solid #ffccbc;
+}
+
+.btn-cancelar-modal {
+    background-color: transparent;
+    color: #6B6055;
+    border: 1px solid #C8C0B0;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.btn-cancelar-modal:hover {
+    background-color: #e8e2d8;
+}

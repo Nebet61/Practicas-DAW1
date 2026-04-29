@@ -1,0 +1,92 @@
+.prestamos-cabecera {
+    background-color: #1B2A4A;
+    padding: 30px 40px;
+    color: #F5F0E8;
+}
+
+.prestamos-cabecera h2 {
+    font-weight: 300;
+    font-size: 26px;
+    margin: 0;
+}
+
+.lista-prestamos {
+    padding: 20px 40px;
+    background-color: #F5F0E8;
+    min-height: 400px;
+}
+
+.tarjeta-prestamo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    border-left: 3px solid #C9A84C;
+}
+
+.prestamo-vencido {
+    border-left-color: #b71c1c;
+}
+
+.prestamo-libro {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.prestamo-libro h5 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1B2A4A;
+    margin: 0;
+}
+
+.prestamo-autor {
+    font-size: 13px;
+    color: #6B6055;
+}
+
+.prestamo-materia {
+    font-size: 12px;
+    color: #C9A84C;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.prestamo-datos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.prestamo-codigo {
+    font-size: 12px;
+    color: #8A8070;
+}
+
+.prestamo-fecha {
+    font-size: 13px;
+    color: #6B6055;
+}
+
+.estado-activo {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+.estado-vencido {
+    font-size: 13px;
+    font-weight: 600;
+    color: #b71c1c;
+}
+
+.sin-prestamos {
+    color: #6B6055;
+    font-size: 14px;
+    margin-top: 20px;
+}
