@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Catálogo</a>
+                    <a class="nav-link" href="<%=request.getContextPath()%>/catalogo">Catálogo</a>
                 </li>
                 <% if (user != null) { %>
                 <li class="nav-item">
@@ -65,7 +65,7 @@
                         <label style="font-size: 14px; color: #1B2A4A; font-weight: 600;">Contraseña</label>
                         <input type="password" name="password" class="form-control mt-1" required>
                     </div>
-                    <button type="submit" class="btn-catalogo w-100" style="border: none; cursor: pointer;">Entrar</button>
+                    <button type="submit" class="btn-modal">Entrar</button>
                 </form>
             </div>
         </div>

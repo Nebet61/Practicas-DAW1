@@ -2,6 +2,9 @@
     background-color: #1B2A4A;
     border-bottom: 2px solid #C9A84C;
     padding: 10px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .cabecera .navbar-brand {
@@ -53,4 +56,20 @@
 .boton-salir:hover {
     border-color: #C8C0B0;
     color: #F5F0E8;
+}
+
+.btn-modal {
+    background-color: #C9A84C;
+    color: #1B2A4A;
+    border: none;
+    padding: 10px 28px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+}
+
+.btn-modal:hover {
+    background-color: #b8953f;
 }
