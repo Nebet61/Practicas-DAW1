@@ -2,7 +2,7 @@
 <%
     Usuario user = (Usuario) session.getAttribute("usuario");
 %>
-<nav class="navbar navbar-expand-md navbar-biblioteca">
+<nav class="navbar navbar-expand-md cabecera">
     <div class="container-fluid">
         <a class="navbar-brand" href="<%=request.getContextPath()%>/home">Biblioteca Chamorro</a>
 
@@ -27,10 +27,10 @@
 
             <div class="d-flex align-items-center gap-3">
                 <% if (user != null) { %>
-                    <span class="user-badge"><%= user.getNombre() %></span>
-                    <a href="<%=request.getContextPath()%>/logout" class="btn-cerrar">Cerrar sesión</a>
+                    <span class="tag-usuario"><%= user.getNombre() %></span>
+                    <a href="<%=request.getContextPath()%>/logout" class="boton-salir">Cerrar sesión</a>
                 <% } else { %>
-                    <a class="nav-link nav-link-accent" href="<%=request.getContextPath()%>/login">Iniciar sesión</a>
+                    <a class="nav-link enlace-dorado" href="<%=request.getContextPath()%>/login">Iniciar sesión</a>
                 <% } %>
             </div>
         </div>

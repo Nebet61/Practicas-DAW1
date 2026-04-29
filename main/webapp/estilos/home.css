@@ -1,14 +1,14 @@
 .portada {
     background-color: #1B2A4A;
     color: #F5F0E8;
-    padding: 5rem 2rem;
+    padding: 80px 32px;
     text-align: center;
 }
 
 .portada h1 {
-    font-size: 2rem;
+    font-size: 32px;
     font-weight: 300;
-    margin-bottom: 0.75rem;
+    margin-bottom: 12px;
 }
 
 .portada h1 strong {
@@ -19,14 +19,14 @@
 .portada p {
     color: #C8C0B0;
     max-width: 500px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 32px;
     line-height: 1.7;
 }
 
 .btn-catalogo {
     background-color: #C9A84C;
     color: #1B2A4A;
-    padding: 0.6rem 1.8rem;
+    padding: 10px 28px;
     font-weight: 600;
     border-radius: 4px;
     text-decoration: none;
@@ -41,10 +41,10 @@
 .btn-secundario {
     border: 1px solid #C9A84C;
     color: #C9A84C;
-    padding: 0.6rem 1.8rem;
+    padding: 10px 28px;
     border-radius: 4px;
     text-decoration: none;
-    margin-left: 1rem;
+    margin-left: 16px;
     transition: background-color 0.2s;
 }
 
@@ -55,25 +55,25 @@
 
 .datos {
     background-color: #F5F0E8;
-    padding: 3rem 2rem;
+    padding: 48px 32px;
 }
 
 .dato {
     text-align: center;
-    padding: 1.5rem;
+    padding: 24px;
 }
 
 .dato-numero {
-    font-size: 2rem;
+    font-size: 32px;
     font-weight: 700;
     color: #1B2A4A;
 }
 
 .dato-texto {
-    font-size: 0.8rem;
+    font-size: 13px;
     color: #6B6055;
     text-transform: uppercase;
-    margin-top: 0.4rem;
+    margin-top: 6px;
 }
 
 .separador-vertical {
@@ -84,32 +84,32 @@
 }
 
 .servicios {
-    padding: 3rem 2rem;
+    padding: 48px 32px;
     background-color: #fff;
 }
 
 .servicio {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1.75rem;
+    gap: 16px;
+    margin-bottom: 28px;
 }
 
 .servicio-icono {
     color: #C9A84C;
     font-weight: 700;
-    font-size: 1.1rem;
-    min-width: 1.5rem;
+    font-size: 18px;
+    min-width: 24px;
 }
 
 .servicio h5 {
-    font-size: 0.95rem;
+    font-size: 15px;
     font-weight: 600;
     color: #1B2A4A;
-    margin-bottom: 0.2rem;
+    margin-bottom: 3px;
 }
 
 .servicio p {
-    font-size: 0.85rem;
+    font-size: 14px;
     color: #6B6055;
     margin: 0;
     line-height: 1.6;

@@ -1,28 +1,28 @@
-.footer-biblioteca {
+.pie {
     background-color: #1B2A4A;
     border-top: 2px solid #C9A84C;
     color: #8A8070;
-    font-size: 0.85rem;
-    padding: 1.5rem 2rem;
+    font-size: 14px;
+    padding: 20px 30px;
     margin-top: auto;
 }
 
-.footer-brand {
+.nombre-pie {
     color: #F5F0E8;
     font-weight: 600;
 }
 
-.footer-biblioteca a {
+.pie a {
     color: #8A8070;
     text-decoration: none;
-    transition: color 0.2s;
 }
 
-.footer-biblioteca a:hover {
+.pie a:hover {
     color: #C9A84C;
 }
 
-.footer-divider {
-    border-color: rgba(201, 168, 76, 0.25);
-    margin: 0.75rem 0;
+.linea-pie {
+    border-color: #C9A84C;
+    opacity: 0.25;
+    margin: 12px 0;
 }

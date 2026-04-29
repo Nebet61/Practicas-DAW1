@@ -1,52 +1,49 @@
-.navbar-biblioteca {
+.cabecera {
     background-color: #1B2A4A;
     border-bottom: 2px solid #C9A84C;
-    padding: 0.75rem 2rem;
+    padding: 10px 30px;
 }
 
-.navbar-biblioteca .navbar-brand {
+.cabecera .navbar-brand {
     color: #F5F0E8;
-    font-size: 1.1rem;
+    font-size: 18px;
     font-weight: 600;
 }
 
-.navbar-biblioteca .nav-link {
+.cabecera .nav-link {
     color: #C8C0B0 !important;
-    transition: color 0.2s;
 }
 
-.navbar-biblioteca .nav-link:hover,
-.nav-link-accent {
+.cabecera .nav-link:hover, .enlace-dorado {
     color: #C9A84C !important;
 }
 
-.navbar-biblioteca .navbar-toggler {
+.cabecera .navbar-toggler {
     border-color: #C9A84C;
 }
 
-.navbar-biblioteca .navbar-toggler-icon {
+.cabecera .navbar-toggler-icon {
     filter: invert(1);
 }
 
-.user-badge {
+.tag-usuario {
     border: 1px solid #C9A84C;
     color: #C9A84C;
     border-radius: 20px;
-    padding: 0.2rem 0.8rem;
-    font-size: 0.85rem;
+    padding: 3px 12px;
+    font-size: 14px;
 }
 
-.btn-cerrar {
+.boton-salir {
     color: #C8C0B0;
-    font-size: 0.85rem;
+    font-size: 14px;
     text-decoration: none;
-    padding: 0.2rem 0.5rem;
+    padding: 3px 8px;
     border: 1px solid transparent;
     border-radius: 4px;
-    transition: all 0.2s;
 }
 
-.btn-cerrar:hover {
+.boton-salir:hover {
     border-color: #C8C0B0;
     color: #F5F0E8;
 }
