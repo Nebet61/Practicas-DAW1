@@ -3,54 +3,50 @@
     border-bottom: 2px solid #C9A84C;
     padding: 0.75rem 2rem;
 }
+
 .navbar-biblioteca .navbar-brand {
     color: #F5F0E8;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    letter-spacing: 0.04em;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
 }
+
 .navbar-biblioteca .nav-link {
     color: #C8C0B0 !important;
-    font-size: 0.9rem;
-    letter-spacing: 0.03em;
-    padding: 0.4rem 0.85rem !important;
     transition: color 0.2s;
 }
-.navbar-biblioteca .nav-link:hover {
+
+.navbar-biblioteca .nav-link:hover,
+.nav-link-accent {
     color: #C9A84C !important;
 }
+
 .navbar-biblioteca .navbar-toggler {
     border-color: #C9A84C;
 }
+
 .navbar-biblioteca .navbar-toggler-icon {
     filter: invert(1);
 }
+
 .user-badge {
-    background-color: rgba(201, 168, 76, 0.15);
     border: 1px solid #C9A84C;
     color: #C9A84C;
     border-radius: 20px;
-    padding: 0.25rem 0.85rem;
-    font-size: 0.82rem;
-    letter-spacing: 0.03em;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.85rem;
 }
+
 .btn-cerrar {
     color: #C8C0B0;
     font-size: 0.85rem;
     text-decoration: none;
-    padding: 0.25rem 0.6rem;
+    padding: 0.2rem 0.5rem;
     border: 1px solid transparent;
     border-radius: 4px;
     transition: all 0.2s;
 }
+
 .btn-cerrar:hover {
     border-color: #C8C0B0;
     color: #F5F0E8;
-}
-.nav-link-accent {
-    color: #C9A84C !important;
-    font-size: 0.9rem;
 }

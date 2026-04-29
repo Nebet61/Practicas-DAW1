@@ -3,67 +3,67 @@
     Usuario user = (Usuario) session.getAttribute("usuario");
 %>
 
-<section class="hero">
+<section class="portada">
     <% if (user != null) { %>
         <h1>Bienvenido, <strong><%= user.getNombre().split(" ")[0] %></strong></h1>
-        <p>Explora nuestro cat&aacute;logo, consulta tus pr&eacute;stamos activos o reserva tu pr&oacute;ximo libro.</p>
-        <a href="<%=request.getContextPath()%>/catalogo" class="btn-catalogo">Ver cat&aacute;logo</a>
-        <a href="<%=request.getContextPath()%>/prestamos" class="btn-login-home">Mis pr&eacute;stamos</a>
+        <p>Explora nuestro catálogo, consulta tus préstamos activos o reserva tu próximo libro.</p>
+        <a href="<%=request.getContextPath()%>/catalogo" class="btn-catalogo">Ver catálogo</a>
+        <a href="<%=request.getContextPath()%>/prestamos" class="btn-secundario">Mis préstamos</a>
     <% } else { %>
         <h1>Bienvenido a <strong>Biblioteca Chamorro</strong></h1>
-        <p>Accede a nuestro cat&aacute;logo de libros, gestiona tus pr&eacute;stamos y descubre nuevas lecturas.</p>
-        <a href="<%=request.getContextPath()%>/catalogo" class="btn-catalogo">Ver cat&aacute;logo</a>
-        <a href="<%=request.getContextPath()%>/login" class="btn-login-home">Iniciar sesi&oacute;n</a>
+        <p>Accede a nuestro catálogo de libros, gestiona tus préstamos y descubre nuevas lecturas.</p>
+        <a href="<%=request.getContextPath()%>/catalogo" class="btn-catalogo">Ver catálogo</a>
+        <a href="<%=request.getContextPath()%>/login" class="btn-secundario">Iniciar sesión</a>
     <% } %>
 </section>
 
-<section class="stats-section">
+<section class="datos">
     <div class="container">
-        <div class="d-flex justify-content-center align-items-center gap-0 flex-wrap">
-            <div class="stat-card">
-                <div class="stat-number">30</div>
-                <div class="stat-label">T&iacute;tulos</div>
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+            <div class="dato">
+                <div class="dato-numero">30</div>
+                <div class="dato-texto">Títulos</div>
             </div>
-            <div class="stat-divider d-none d-md-block mx-2"></div>
-            <div class="stat-card">
-                <div class="stat-number">67</div>
-                <div class="stat-label">Ejemplares</div>
+            <div class="separador-vertical d-none d-md-block mx-2"></div>
+            <div class="dato">
+                <div class="dato-numero">67</div>
+                <div class="dato-texto">Ejemplares</div>
             </div>
-            <div class="stat-divider d-none d-md-block mx-2"></div>
-            <div class="stat-card">
-                <div class="stat-number">15</div>
-                <div class="stat-label">Usuarios registrados</div>
+            <div class="separador-vertical d-none d-md-block mx-2"></div>
+            <div class="dato">
+                <div class="dato-numero">15</div>
+                <div class="dato-texto">Usuarios registrados</div>
             </div>
-            <div class="stat-divider d-none d-md-block mx-2"></div>
-            <div class="stat-card">
-                <div class="stat-number">6</div>
-                <div class="stat-label">Bibliotecarios</div>
+            <div class="separador-vertical d-none d-md-block mx-2"></div>
+            <div class="dato">
+                <div class="dato-numero">6</div>
+                <div class="dato-texto">Bibliotecarios</div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="info-section">
+<section class="servicios">
     <div class="container" style="max-width: 640px;">
-        <div class="info-item">
-            <div class="info-icon">+</div>
+        <div class="servicio">
+            <div class="servicio-icono">+</div>
             <div>
                 <h5>Acceso con DNI</h5>
-                <p>Ident&iacute;ficate con tu DNI y contrase&ntilde;a para gestionar tus pr&eacute;stamos de forma segura.</p>
+                <p>Identifícate con tu DNI y contraseña para gestionar tus préstamos de forma segura.</p>
             </div>
         </div>
-        <div class="info-item">
-            <div class="info-icon">+</div>
+        <div class="servicio">
+            <div class="servicio-icono">+</div>
             <div>
-                <h5>Hasta 3 libros simult&aacute;neos</h5>
-                <p>Puedes tener en pr&eacute;stamo hasta 3 ejemplares al mismo tiempo.</p>
+                <h5>Hasta 3 libros simultáneos</h5>
+                <p>Puedes tener en préstamo hasta 3 ejemplares al mismo tiempo.</p>
             </div>
         </div>
-        <div class="info-item">
-            <div class="info-icon">+</div>
+        <div class="servicio">
+            <div class="servicio-icono">+</div>
             <div>
                 <h5>Lista de espera</h5>
-                <p>Si el libro que buscas no est&aacute; disponible, &uacute;nete a la lista de espera y te avisamos cuando est&eacute; listo.</p>
+                <p>Si el libro que buscas no está disponible, únete a la lista de espera y te avisamos cuando esté listo.</p>
             </div>
         </div>
     </div>

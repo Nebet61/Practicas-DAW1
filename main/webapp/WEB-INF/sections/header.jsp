@@ -16,11 +16,11 @@
                     <a class="nav-link" href="<%=request.getContextPath()%>/home">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cat&aacute;logo</a>
+                    <a class="nav-link" href="#">Catálogo</a>
                 </li>
                 <% if (user != null) { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mis pr&eacute;stamos</a>
+                    <a class="nav-link" href="#">Mis préstamos</a>
                 </li>
                 <% } %>
             </ul>
@@ -28,9 +28,9 @@
             <div class="d-flex align-items-center gap-3">
                 <% if (user != null) { %>
                     <span class="user-badge"><%= user.getNombre() %></span>
-                    <a href="<%=request.getContextPath()%>/logout" class="btn-cerrar">Cerrar sesi&oacute;n</a>
+                    <a href="<%=request.getContextPath()%>/logout" class="btn-cerrar">Cerrar sesión</a>
                 <% } else { %>
-                    <a class="nav-link nav-link-accent" href="<%=request.getContextPath()%>/login">Iniciar sesi&oacute;n</a>
+                    <a class="nav-link nav-link-accent" href="<%=request.getContextPath()%>/login">Iniciar sesión</a>
                 <% } %>
             </div>
         </div>
