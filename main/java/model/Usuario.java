@@ -8,14 +8,16 @@ public class Usuario {
     private int idUsuario;
     private String nombre;
     private String DNI;
+    private String password;
     private String cuentaBanco;
     private Historico historico;
     private List<ListaEspera> listaEspera;
 
-    public Usuario(int idUsuario, String nombre, String DNI, String cuentaBanco) {
+    public Usuario(int idUsuario, String nombre, String DNI, String password, String cuentaBanco) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.DNI = DNI;
+        this.password = password;
         this.cuentaBanco = cuentaBanco;
         this.listaEspera = new ArrayList<>();
     }
@@ -42,6 +44,14 @@ public class Usuario {
 
     public void setDNI(String DNI) {
         this.DNI = DNI;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getCuentaBanco() {

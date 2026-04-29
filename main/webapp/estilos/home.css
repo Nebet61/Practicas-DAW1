@@ -53,64 +53,41 @@
     color: #C9A84C;
 }
 
-.datos {
-    background-color: #F5F0E8;
-    padding: 48px 32px;
-}
-
-.dato {
-    text-align: center;
-    padding: 24px;
-}
-
-.dato-numero {
-    font-size: 32px;
-    font-weight: 700;
-    color: #1B2A4A;
-}
-
-.dato-texto {
-    font-size: 13px;
-    color: #6B6055;
-    text-transform: uppercase;
-    margin-top: 6px;
-}
-
-.separador-vertical {
-    width: 1px;
-    background-color: #C9A84C;
-    opacity: 0.4;
-    align-self: stretch;
-}
-
 .servicios {
     padding: 48px 32px;
-    background-color: #fff;
+    background-color: #F5F0E8;
 }
 
-.servicio {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 28px;
+.servicios .accordion-item {
+    background-color: #F5F0E8;
+    border: none;
 }
 
-.servicio-icono {
-    color: #C9A84C;
-    font-weight: 700;
-    font-size: 18px;
-    min-width: 24px;
-}
-
-.servicio h5 {
-    font-size: 15px;
-    font-weight: 600;
+.servicios .accordion-button {
+    background-color: #F5F0E8;
     color: #1B2A4A;
-    margin-bottom: 3px;
+    font-weight: 600;
+    font-size: 15px;
 }
 
-.servicio p {
-    font-size: 14px;
+.servicios .accordion-button:not(.collapsed) {
+    color: #C9A84C;
+    background-color: #F5F0E8;
+    box-shadow: none;
+}
+
+.servicios .accordion-body {
     color: #6B6055;
-    margin: 0;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+@keyframes parpadeo {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.texto-acordeon {
+    animation: parpadeo 3s infinite;
 }

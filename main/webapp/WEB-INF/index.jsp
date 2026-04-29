@@ -48,11 +48,11 @@ if (lang != null) {
 <link rel="stylesheet" href="<%=request.getContextPath()%>/${estilo}">
 </head>
 
-<body>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
 
 	<jsp:include page="/WEB-INF/sections/header.jsp" />
 
-	<main class="main">
+	<main class="main" style="flex: 1;">
 
 		<%
 		String message = (String) session.getAttribute("message");

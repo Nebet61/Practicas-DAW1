@@ -17,54 +17,49 @@
     <% } %>
 </section>
 
-<section class="datos">
-    <div class="container">
-        <div class="d-flex justify-content-center align-items-center flex-wrap">
-            <div class="dato">
-                <div class="dato-numero">30</div>
-                <div class="dato-texto">Títulos</div>
-            </div>
-            <div class="separador-vertical d-none d-md-block mx-2"></div>
-            <div class="dato">
-                <div class="dato-numero">67</div>
-                <div class="dato-texto">Ejemplares</div>
-            </div>
-            <div class="separador-vertical d-none d-md-block mx-2"></div>
-            <div class="dato">
-                <div class="dato-numero">15</div>
-                <div class="dato-texto">Usuarios registrados</div>
-            </div>
-            <div class="separador-vertical d-none d-md-block mx-2"></div>
-            <div class="dato">
-                <div class="dato-numero">6</div>
-                <div class="dato-texto">Bibliotecarios</div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="servicios">
     <div class="container" style="max-width: 640px;">
-        <div class="servicio">
-            <div class="servicio-icono">+</div>
-            <div>
-                <h5>Acceso con DNI</h5>
-                <p>Identifícate con tu DNI y contraseña para gestionar tus préstamos de forma segura.</p>
+        <div class="accordion accordion-flush" id="acordeonServicios">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#servicio1">
+                        <span class="texto-acordeon">Acceso con DNI</span>
+                    </button>
+                </h2>
+                <div id="servicio1" class="accordion-collapse collapse" data-bs-parent="#acordeonServicios">
+                    <div class="accordion-body">
+                        Identifícate con tu DNI y contraseña para gestionar tus préstamos de forma segura.
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="servicio">
-            <div class="servicio-icono">+</div>
-            <div>
-                <h5>Hasta 3 libros simultáneos</h5>
-                <p>Puedes tener en préstamo hasta 3 ejemplares al mismo tiempo.</p>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#servicio2">
+                        <span class="texto-acordeon">Hasta 3 libros simultáneos</span>
+                    </button>
+                </h2>
+                <div id="servicio2" class="accordion-collapse collapse" data-bs-parent="#acordeonServicios">
+                    <div class="accordion-body">
+                        Puedes tener en préstamo hasta 3 ejemplares al mismo tiempo.
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="servicio">
-            <div class="servicio-icono">+</div>
-            <div>
-                <h5>Lista de espera</h5>
-                <p>Si el libro que buscas no está disponible, únete a la lista de espera y te avisamos cuando esté listo.</p>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#servicio3">
+                        <span class="texto-acordeon">Lista de espera</span>
+                    </button>
+                </h2>
+                <div id="servicio3" class="accordion-collapse collapse" data-bs-parent="#acordeonServicios">
+                    <div class="accordion-body">
+                        Si el libro que buscas no está disponible, únete a la lista de espera y te avisamos cuando esté listo.
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </section>
