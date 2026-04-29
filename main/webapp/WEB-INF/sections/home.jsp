@@ -7,14 +7,11 @@
     <% if (user != null) { %>
         <h1>Bienvenido, <strong><%= user.getNombre().split(" ")[0] %></strong></h1>
         <p>Explora nuestro catálogo, consulta tus préstamos activos o reserva tu próximo libro.</p>
-        <a href="<%=request.getContextPath()%>/catalogo" class="btn-catalogo">Ver catálogo</a>
-        <a href="<%=request.getContextPath()%>/prestamos" class="btn-secundario">Mis préstamos</a>
     <% } else { %>
         <h1>Bienvenido a <strong>Biblioteca Chamorro</strong></h1>
         <p>Accede a nuestro catálogo de libros, gestiona tus préstamos y descubre nuevas lecturas.</p>
-        <a href="<%=request.getContextPath()%>/catalogo" class="btn-catalogo">Ver catálogo</a>
-        <a href="<%=request.getContextPath()%>/login" class="btn-secundario">Iniciar sesión</a>
     <% } %>
+    <a href="<%=request.getContextPath()%>/catalogo" class="btn-catalogo">Ver catálogo</a>
 </section>
 
 <section class="servicios">
