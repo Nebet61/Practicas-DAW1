@@ -1,5 +1,7 @@
 .portada {
-    background-color: #1B2A4A;
+    background-image: linear-gradient(rgba(27, 42, 74, 0.75), rgba(27, 42, 74, 0.75)), url('../src/Foto libros.jpg');
+    background-size: cover;
+    background-position: center;
     color: #F5F0E8;
     padding: 80px 32px;
     text-align: center;
