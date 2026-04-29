@@ -8,6 +8,13 @@
     color: #F5F0E8;
     font-size: 18px;
     font-weight: 600;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.cabecera .navbar-brand:hover {
+    transform: scale(1.05);
+    color: #F5F0E8;
 }
 
 .cabecera .nav-link {

@@ -5,7 +5,7 @@
 
 <section class="portada">
     <% if (user != null) { %>
-        <h1>Hola, <strong><%= user.getNombre().split(" ")[0] %></strong></h1>
+        <h1>Hola, bienvenido/a <strong><%= user.getNombre().split(" ")[0] %></strong></h1>
         <p>Explora nuestro catálogo, consulta tus préstamos activos o reserva tu próximo libro.</p>
     <% } else { %>
         <h1>Te damos la bienvenida a <strong>Biblioteca Chamorro</strong></h1>
