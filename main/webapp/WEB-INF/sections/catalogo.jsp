@@ -76,7 +76,8 @@
                     <button type="button" class="btn btn-sm btn-dark"
                         data-bs-toggle="modal"
                         data-bs-target="#modalPrestamo"
-                        data-id="<%=libro.getIdLibro()%>">
+                        data-id="<%=libro.getIdLibro()%>"
+                        data-titulo="<%=libro.getTitulo()%>">
                         Pedir préstamo
                     </button>
                 <% } %>
@@ -89,17 +90,17 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Confirmar préstamo</h5>
+                <h5 class="modal-title ">Confirmar préstamo</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                ¿Quieres pedir este libro en préstamo?
+                Libro: <span id="modalTitulo"></span>
             </div>
             <div class="modal-footer">
                 <form action="<%=request.getContextPath()%>/prestamo" method="post">
                     <input type="hidden" id="inputIdLibro" name="idLibro" value="">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Confirmar</button>
+                    <button type="submit" class="btn btn-dark">Confirmar</button>
                 </form>
             </div>
         </div>
@@ -109,6 +110,7 @@
 <script>
 document.getElementById('modalPrestamo').addEventListener('show.bs.modal', function(e) {
     document.getElementById('inputIdLibro').value = e.relatedTarget.getAttribute('data-id');
+    document.getElementById('modalTitulo').textContent = e.relatedTarget.getAttribute('data-titulo');
 });
 
 setInterval(function() {
