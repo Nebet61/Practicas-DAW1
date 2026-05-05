@@ -15,6 +15,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @WebServlet("/catalogo")
@@ -105,10 +107,15 @@ public class CatalogoController extends HttpServlet {
             e.printStackTrace();
         }
 
-        libros.sort((a, b) -> {
-            int pa = a.getEstado().equals("disp") ? 0 : a.getEstado().equals("prest") ? 1 : 2;
-            int pb = b.getEstado().equals("disp") ? 0 : b.getEstado().equals("prest") ? 1 : 2;
-            return pa - pb;
+        Collections.sort(libros, new Comparator<Libro>() {
+            public int compare(Libro a, Libro b) {
+                int pa = 0, pb = 0;
+                if (a.getEstado().equals("prest")) pa = 1;
+                if (a.getEstado().equals("bloq")) pa = 2;
+                if (b.getEstado().equals("prest")) pb = 1;
+                if (b.getEstado().equals("bloq")) pb = 2;
+                return pa - pb;
+            }
         });
 
         request.setAttribute("libros", libros);

@@ -24,7 +24,7 @@
                 <option value="<%=m%>" <%=m.equals(materia) ? "selected" : ""%>><%=m%></option>
             <% } %>
         </select>
-        <button type="submit" class="btn-buscar">Filtrar</button>
+        <button type="submit" class="btn-buscar" id="btn-filtrar">Filtrar</button>
         <% if (!materia.isEmpty()) { %>
             <a href="<%=request.getContextPath()%>/catalogo" class="btn-limpiar">Ver todos</a>
         <% } %>
@@ -44,8 +44,18 @@
     <% } else {
         for (Libro libro : libros) {
             String estado = libro.getEstado();
-            String etiqueta = estado.equals("disp") ? "Disponible" : estado.equals("prest") ? "Prestado" : "No disponible";
-            String claseEstado = estado.equals("disp") ? "estado-disp" : estado.equals("prest") ? "estado-prest" : "estado-bloq";
+            String etiqueta = "";
+            String claseEstado = "";
+            if (estado.equals("disp")) {
+                etiqueta = "Disponible";
+                claseEstado = "estado-disp";
+            } else if (estado.equals("prest")) {
+                etiqueta = "Prestado";
+                claseEstado = "estado-prest";
+            } else {
+                etiqueta = "No disponible";
+                claseEstado = "estado-bloq";
+            }
             int disponibles = 0;
             for (model.Ejemplar e : libro.getEjemplares()) {
                 if (e.getEstado().equals("disp")) disponibles++;
@@ -88,8 +98,8 @@
             <div class="modal-footer">
                 <form action="<%=request.getContextPath()%>/prestamo" method="post">
                     <input type="hidden" id="inputIdLibro" name="idLibro" value="">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </form>
             </div>
         </div>
@@ -100,4 +110,12 @@
 document.getElementById('modalPrestamo').addEventListener('show.bs.modal', function(e) {
     document.getElementById('inputIdLibro').value = e.relatedTarget.getAttribute('data-id');
 });
+
+setInterval(function() {
+    var btn = document.getElementById('btn-filtrar');
+    btn.classList.add('animate__animated', 'animate__tada');
+    setTimeout(function() {
+        btn.classList.remove('animate__animated', 'animate__tada');
+    }, 1000);
+}, 4000);
 </script>

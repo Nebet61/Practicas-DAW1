@@ -20,6 +20,7 @@
 	rel="stylesheet"
 	integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
 	crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/estilos/normalize.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/estilos/Layout.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/estilos/header.css">
