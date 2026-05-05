@@ -2,13 +2,11 @@
 <%
     List<Libro> libros = (List<Libro>) request.getAttribute("libros");
     List<String> materias = (List<String>) request.getAttribute("materias");
-    String filtro = (String) request.getAttribute("filtro");
     String materia = (String) request.getAttribute("materia");
-    if (filtro == null) filtro = "";
     if (materia == null) materia = "";
 
     Usuario userCat = (Usuario) session.getAttribute("usuario");
-    int numPrestamos = request.getAttribute("numPrestamos") != null ? (Integer) request.getAttribute("numPrestamos") : 0;
+    int numPrestamos = (Integer) request.getAttribute("numPrestamos");
     boolean limitePrestamos = numPrestamos >= 3;
 
     String prestamoOk = (String) session.getAttribute("prestamoOk");
@@ -20,7 +18,6 @@
 <div class="catalogo-cabecera">
     <h2>Catálogo</h2>
     <form class="form-busqueda" action="<%=request.getContextPath()%>/catalogo" method="get">
-        <input type="text" name="filtro" class="input-busqueda" placeholder="Buscar por título o autor..." value="<%=filtro%>">
         <select name="materia" class="select-materia">
             <option value="">Todas las materias</option>
             <% if (materias != null) {
@@ -28,9 +25,9 @@
                 <option value="<%=m%>" <%=m.equals(materia) ? "selected" : ""%>><%=m%></option>
             <% } } %>
         </select>
-        <button type="submit" class="btn-buscar">Buscar</button>
-        <% if (!filtro.isEmpty() || !materia.isEmpty()) { %>
-            <a href="<%=request.getContextPath()%>/catalogo" class="btn-limpiar">Limpiar</a>
+        <button type="submit" class="btn-buscar">Filtrar</button>
+        <% if (!materia.isEmpty()) { %>
+            <a href="<%=request.getContextPath()%>/catalogo" class="btn-limpiar">Ver todos</a>
         <% } %>
     </form>
 </div>

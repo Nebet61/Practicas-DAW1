@@ -16,20 +16,6 @@
     align-items: center;
 }
 
-.input-busqueda {
-    padding: 8px 14px;
-    border: 1px solid #C9A84C;
-    border-radius: 4px;
-    background-color: transparent;
-    color: #F5F0E8;
-    font-size: 14px;
-    width: 320px;
-}
-
-.input-busqueda::placeholder {
-    color: #8A8070;
-}
-
 .select-materia {
     padding: 8px 14px;
     border: 1px solid #C9A84C;

@@ -23,9 +23,6 @@ public class CatalogoController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String filtro = request.getParameter("filtro");
-        if (filtro == null) filtro = "";
-
         String materia = request.getParameter("materia");
         if (materia == null) materia = "";
 
@@ -65,19 +62,12 @@ public class CatalogoController extends HttpServlet {
             PreparedStatement ps;
 
             if (!materia.isEmpty()) {
-                sql = "SELECT * FROM libro WHERE (titulo LIKE ? OR autor LIKE ?) AND materia = ?";
+                sql = "SELECT * FROM libro WHERE materia = ?";
                 ps = con.prepareStatement(sql);
-                String busqueda = "%" + filtro + "%";
-                ps.setString(1, busqueda);
-                ps.setString(2, busqueda);
-                ps.setString(3, materia);
+                ps.setString(1, materia);
             } else {
-                sql = "SELECT * FROM libro WHERE titulo LIKE ? OR autor LIKE ? OR materia LIKE ?";
+                sql = "SELECT * FROM libro";
                 ps = con.prepareStatement(sql);
-                String busqueda = "%" + filtro + "%";
-                ps.setString(1, busqueda);
-                ps.setString(2, busqueda);
-                ps.setString(3, busqueda);
             }
 
             ResultSet rs = ps.executeQuery();
@@ -121,7 +111,6 @@ public class CatalogoController extends HttpServlet {
 
         request.setAttribute("libros", libros);
         request.setAttribute("materias", materias);
-        request.setAttribute("filtro", filtro);
         request.setAttribute("materia", materia);
         request.setAttribute("numPrestamos", numPrestamos);
         request.setAttribute("view", "catalogo.jsp");
