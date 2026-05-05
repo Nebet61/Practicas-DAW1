@@ -36,10 +36,10 @@
 </div>
 
 <% if (prestamoOk != null) { %>
-    <div class="aviso-prestamo aviso-ok"><%=prestamoOk%></div>
+    <div class="mensaje-ok"><%=prestamoOk%></div>
 <% } %>
 <% if (prestamoError != null) { %>
-    <div class="aviso-prestamo aviso-error"><%=prestamoError%></div>
+    <div class="mensaje-error"><%=prestamoError%></div>
 <% } %>
 
 <div class="lista-libros">
@@ -93,7 +93,7 @@
             <div class="modal-footer" style="background-color: #F5F0E8; border-top: 1px solid #ddd; padding: 12px 30px;">
                 <form id="formConfirmar" action="<%=request.getContextPath()%>/prestamo" method="post">
                     <input type="hidden" id="inputIdLibro" name="idLibro" value="">
-                    <button type="button" class="btn-cancelar-modal" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn-modal">Confirmar</button>
                 </form>
             </div>

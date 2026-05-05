@@ -11,7 +11,7 @@
         </div>
         <hr class="linea-pie">
         <div class="text-center">
-            &copy; <%= new java.util.Calendar.Builder().build().get(java.util.Calendar.YEAR) %> Biblioteca Chamorro &mdash; Todos los derechos reservados
+            &copy; 2025 Biblioteca Chamorro &mdash; Todos los derechos reservados
         </div>
     </div>
 </footer>

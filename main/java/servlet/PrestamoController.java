@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDate;
 
 @WebServlet("/prestamo")
 public class PrestamoController extends HttpServlet {
@@ -89,16 +88,13 @@ public class PrestamoController extends HttpServlet {
             rsEj.close();
             psEj.close();
 
-            con.setAutoCommit(false);
-
             PreparedStatement psUpd = con.prepareStatement(
                 "UPDATE ejemplar SET estado = 'prest' WHERE id_ejemplar = ?"
             );
             psUpd.setInt(1, idEjemplar);
             psUpd.executeUpdate();
-            psUpd.close();
 
-            String codigo = "P-" + LocalDate.now().getYear() + "-" + System.currentTimeMillis() % 100000;
+            String codigo = "P-" + (System.currentTimeMillis() % 100000);
 
             PreparedStatement psIns = con.prepareStatement(
                 "INSERT INTO prestamo (estado, fecha, fecha_devolucion, codigo, id_ejemplar, id_historico) VALUES ('activo', CURDATE(), DATE_ADD(CURDATE(), INTERVAL 1 MONTH), ?, ?, ?)"
@@ -107,9 +103,7 @@ public class PrestamoController extends HttpServlet {
             psIns.setInt(2, idEjemplar);
             psIns.setInt(3, idHistorico);
             psIns.executeUpdate();
-            psIns.close();
 
-            con.commit();
             acceso.desconectar();
 
             request.getSession().setAttribute("prestamoOk", "Préstamo realizado correctamente.");

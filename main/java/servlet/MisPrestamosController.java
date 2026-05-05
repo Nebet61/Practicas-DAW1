@@ -34,9 +34,10 @@ public class MisPrestamosController extends HttpServlet {
             AccesoBD acceso = new AccesoBD();
             Connection con = acceso.getConexion();
 
-            con.prepareStatement(
+            PreparedStatement psVencidos = con.prepareStatement(
                 "UPDATE prestamo SET estado = 'vencido' WHERE estado = 'activo' AND fecha_devolucion < CURDATE()"
-            ).executeUpdate();
+            );
+            psVencidos.executeUpdate();
 
             PreparedStatement ps = con.prepareStatement(
                 "SELECT p.codigo, p.estado, p.fecha, p.fecha_devolucion, l.titulo, l.autor, l.materia " +

@@ -169,24 +169,23 @@
     margin-top: 4px;
 }
 
-.aviso-prestamo {
+.mensaje-ok {
     padding: 10px 40px;
     font-size: 14px;
-}
-
-.aviso-ok {
     background-color: #e8f5e9;
     color: #2e7d32;
     border-bottom: 1px solid #c8e6c9;
 }
 
-.aviso-error {
+.mensaje-error {
+    padding: 10px 40px;
+    font-size: 14px;
     background-color: #fbe9e7;
     color: #b71c1c;
     border-bottom: 1px solid #ffccbc;
 }
 
-.btn-cancelar-modal {
+.btn-cancelar {
     background-color: transparent;
     color: #6B6055;
     border: 1px solid #C8C0B0;
@@ -197,6 +196,6 @@
     margin-right: 8px;
 }
 
-.btn-cancelar-modal:hover {
+.btn-cancelar:hover {
     background-color: #e8e2d8;
 }

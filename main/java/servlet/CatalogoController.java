@@ -15,9 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 @WebServlet("/catalogo")
 public class CatalogoController extends HttpServlet {
@@ -41,9 +39,10 @@ public class CatalogoController extends HttpServlet {
             AccesoBD acceso = new AccesoBD();
             Connection con = acceso.getConexion();
 
-            con.prepareStatement(
+            PreparedStatement psVencidos = con.prepareStatement(
                 "UPDATE prestamo SET estado = 'vencido' WHERE estado = 'activo' AND fecha_devolucion < CURDATE()"
-            ).executeUpdate();
+            );
+            psVencidos.executeUpdate();
 
             if (user != null) {
                 PreparedStatement psCount = con.prepareStatement(
@@ -114,8 +113,11 @@ public class CatalogoController extends HttpServlet {
             e.printStackTrace();
         }
 
-        Map<String, Integer> orden = Map.of("disp", 0, "prest", 1, "bloq", 2);
-        libros.sort(Comparator.comparingInt(l -> orden.getOrDefault(l.getEstado(), 3)));
+        libros.sort((a, b) -> {
+            int pa = a.getEstado().equals("disp") ? 0 : a.getEstado().equals("prest") ? 1 : 2;
+            int pb = b.getEstado().equals("disp") ? 0 : b.getEstado().equals("prest") ? 1 : 2;
+            return pa - pb;
+        });
 
         request.setAttribute("libros", libros);
         request.setAttribute("materias", materias);

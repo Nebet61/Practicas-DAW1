@@ -3,23 +3,10 @@
 
 <%
 Usuario user = (Usuario) session.getAttribute("usuario");
-
-// IDIOMA
-String lang = request.getParameter("lang");
-
-if (lang != null) {
-	session.setAttribute("lang", lang);
-} else {
-	lang = (String) session.getAttribute("lang");
-	if (lang == null) {
-		lang = "es";
-		session.setAttribute("lang", lang);
-	}
-}
 %>
 
 <!DOCTYPE html>
-<html lang="<%=lang%>">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
