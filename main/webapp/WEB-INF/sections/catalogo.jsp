@@ -39,13 +39,17 @@
 <% } %>
 
 <div class="lista-libros">
-    <% if (libros == null || libros.isEmpty()) { %>
+    <% if (libros.isEmpty()) { %>
         <p class="sin-resultados">No se han encontrado libros.</p>
     <% } else {
         for (Libro libro : libros) {
             String estado = libro.getEstado();
             String etiqueta = estado.equals("disp") ? "Disponible" : estado.equals("prest") ? "Prestado" : "No disponible";
             String claseEstado = estado.equals("disp") ? "estado-disp" : estado.equals("prest") ? "estado-prest" : "estado-bloq";
+            int disponibles = 0;
+            for (model.Ejemplar e : libro.getEjemplares()) {
+                if (e.getEstado().equals("disp")) disponibles++;
+            }
     %>
         <div class="tarjeta-libro">
             <div class="libro-info">
@@ -55,17 +59,45 @@
             </div>
             <div class="libro-estado">
                 <span class="<%=claseEstado%>"><%=etiqueta%></span>
-                <% if (userCat != null && estado.equals("disp")) { %>
-                    <% if (limitePrestamos) { %>
-                        <span class="limite-prestamos">Límite de préstamos alcanzado</span>
-                    <% } else { %>
-                        <form action="<%=request.getContextPath()%>/prestamo" method="post">
-                            <input type="hidden" name="idLibro" value="<%=libro.getIdLibro()%>">
-                            <button type="submit" class="btn-prestamo">Pedir préstamo</button>
-                        </form>
-                    <% } %>
+                <span class="libro-ejemplares"><%=disponibles%> / <%=libro.getNumEjemplares()%> disponibles</span>
+                <% if (userCat != null && estado.equals("disp") && limitePrestamos) { %>
+                    <span class="limite-prestamos">Límite de préstamos alcanzado</span>
+                <% } else if (userCat != null && estado.equals("disp")) { %>
+                    <button type="button" class="btn btn-sm btn-dark"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalPrestamo"
+                        data-id="<%=libro.getIdLibro()%>">
+                        Pedir préstamo
+                    </button>
                 <% } %>
             </div>
         </div>
     <% } } %>
 </div>
+
+<div class="modal fade" id="modalPrestamo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar préstamo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                ¿Quieres pedir este libro en préstamo?
+            </div>
+            <div class="modal-footer">
+                <form action="<%=request.getContextPath()%>/prestamo" method="post">
+                    <input type="hidden" id="inputIdLibro" name="idLibro" value="">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('modalPrestamo').addEventListener('show.bs.modal', function(e) {
+    document.getElementById('inputIdLibro').value = e.relatedTarget.getAttribute('data-id');
+});
+</script>

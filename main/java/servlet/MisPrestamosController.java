@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -32,14 +31,13 @@ public class MisPrestamosController extends HttpServlet {
 
         try {
             AccesoBD acceso = new AccesoBD();
-            Connection con = acceso.getConexion();
 
-            PreparedStatement psVencidos = con.prepareStatement(
+            PreparedStatement psVencidos = acceso.getConexion().prepareStatement(
                 "UPDATE prestamo SET estado = 'vencido' WHERE estado = 'activo' AND fecha_devolucion < CURDATE()"
             );
             psVencidos.executeUpdate();
 
-            PreparedStatement ps = con.prepareStatement(
+            PreparedStatement ps = acceso.getConexion().prepareStatement(
                 "SELECT p.codigo, p.estado, p.fecha, p.fecha_devolucion, l.titulo, l.autor, l.materia " +
                 "FROM prestamo p " +
                 "JOIN historico h ON p.id_historico = h.id_historico " +
@@ -63,8 +61,6 @@ public class MisPrestamosController extends HttpServlet {
                 ));
             }
 
-            rs.close();
-            ps.close();
             acceso.desconectar();
 
         } catch (Exception e) {

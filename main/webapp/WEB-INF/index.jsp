@@ -1,9 +1,4 @@
-<%@ page isELIgnored="false" language="java" import="model.Usuario"
-	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<%
-Usuario user = (Usuario) session.getAttribute("usuario");
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -12,9 +7,6 @@ Usuario user = (Usuario) session.getAttribute("usuario");
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Biblioteca Chamorro</title>
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 <link rel="shortcut icon" href="src/favicon.ico" />
 

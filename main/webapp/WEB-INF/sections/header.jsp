@@ -45,24 +45,24 @@
 
 <div class="modal fade" id="modalLogin" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="border: none; border-radius: 6px;">
-            <div class="modal-header" style="background-color: #1B2A4A; border-radius: 6px 6px 0 0;">
-                <h5 class="modal-title" style="color: #F5F0E8; font-weight: 400;">Iniciar sesión</h5>
+        <div class="modal-content modal-login">
+            <div class="modal-header modal-login-header">
+                <h5 class="modal-title">Iniciar sesión</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body" style="padding: 30px; background-color: #F5F0E8;">
+            <div class="modal-body modal-login-body">
                 <% String error = (String) session.getAttribute("loginError");
                    if (error != null) { %>
-                    <div class="alert alert-danger py-2" style="font-size: 14px;"><%= error %></div>
+                    <div class="alert alert-danger py-2"><%= error %></div>
                 <%     session.removeAttribute("loginError");
                    } %>
                 <form action="<%=request.getContextPath()%>/login" method="post">
-<div class="mb-3">
-                        <label style="font-size: 14px; color: #1B2A4A; font-weight: 600;">DNI</label>
+                    <div class="mb-3">
+                        <label class="label-modal">DNI</label>
                         <input type="text" name="dni" class="form-control mt-1" placeholder="12345678A" required>
                     </div>
                     <div class="mb-4">
-                        <label style="font-size: 14px; color: #1B2A4A; font-weight: 600;">Contraseña</label>
+                        <label class="label-modal">Contraseña</label>
                         <input type="password" name="password" class="form-control mt-1" required>
                     </div>
                     <button type="submit" class="btn-modal">Entrar</button>

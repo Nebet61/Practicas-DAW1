@@ -104,3 +104,26 @@
 .btn-modal:hover {
     background-color: #b8953f;
 }
+
+.modal-login {
+    border: none;
+    border-radius: 6px;
+}
+
+.modal-login-header {
+    background-color: #1B2A4A;
+    border-radius: 6px 6px 0 0;
+    color: #F5F0E8;
+    font-weight: 400;
+}
+
+.modal-login-body {
+    padding: 30px;
+    background-color: #F5F0E8;
+}
+
+.label-modal {
+    font-size: 14px;
+    color: #1B2A4A;
+    font-weight: 600;
+}

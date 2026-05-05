@@ -21,7 +21,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#servicio1">
-                        <span class="texto-acordeon">Acceso con DNI</span>
+                        Acceso con DNI
                     </button>
                 </h2>
                 <div id="servicio1" class="accordion-collapse collapse" data-bs-parent="#acordeonServicios">
@@ -34,7 +34,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#servicio2">
-                        <span class="texto-acordeon">Hasta 3 libros simultáneos</span>
+                        Hasta 3 libros simultáneos
                     </button>
                 </h2>
                 <div id="servicio2" class="accordion-collapse collapse" data-bs-parent="#acordeonServicios">
@@ -47,7 +47,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#servicio3">
-                        <span class="texto-acordeon">Lista de espera</span>
+                        Lista de espera
                     </button>
                 </h2>
                 <div id="servicio3" class="accordion-collapse collapse" data-bs-parent="#acordeonServicios">

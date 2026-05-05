@@ -8,7 +8,7 @@
 </div>
 
 <div class="lista-prestamos">
-    <% if (prestamos == null || prestamos.isEmpty()) { %>
+    <% if (prestamos.isEmpty()) { %>
         <p class="sin-prestamos">No tienes préstamos activos en este momento.</p>
     <% } else {
         for (PrestamoDetalle p : prestamos) {
@@ -23,9 +23,7 @@
             <div class="prestamo-datos">
                 <span class="prestamo-codigo"><%=p.getCodigo()%></span>
                 <span class="prestamo-fecha">Desde: <%=p.getFecha()%></span>
-                <% if (p.getFechaDevolucion() != null) { %>
-                    <span class="prestamo-fecha">Devolver antes de: <%=p.getFechaDevolucion()%></span>
-                <% } %>
+                <span class="prestamo-fecha">Devolver antes de: <%=p.getFechaDevolucion()%></span>
                 <span class="<%=vencido ? "estado-vencido" : "estado-activo"%>">
                     <%=vencido ? "Por devolver" : "Activo"%>
                 </span>
