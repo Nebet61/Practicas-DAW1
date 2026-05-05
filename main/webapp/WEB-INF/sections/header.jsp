@@ -57,7 +57,7 @@
                 <%     session.removeAttribute("loginError");
                    } %>
                 <form action="<%=request.getContextPath()%>/login" method="post">
-                    <div class="mb-3">
+<div class="mb-3">
                         <label style="font-size: 14px; color: #1B2A4A; font-weight: 600;">DNI</label>
                         <input type="text" name="dni" class="form-control mt-1" placeholder="12345678A" required>
                     </div>

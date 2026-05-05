@@ -20,11 +20,31 @@ public class PrestamoDetalle {
         this.codigo = codigo;
     }
 
-    public String getTitulo() { return titulo; }
-    public String getAutor() { return autor; }
-    public String getMateria() { return materia; }
-    public String getFecha() { return fecha; }
-    public String getFechaDevolucion() { return fechaDevolucion; }
-    public String getEstado() { return estado; }
-    public String getCodigo() { return codigo; }
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public String getMateria() {
+        return materia;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public String getFechaDevolucion() {
+        return fechaDevolucion;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
 }
