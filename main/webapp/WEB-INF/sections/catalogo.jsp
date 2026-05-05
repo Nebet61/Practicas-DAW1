@@ -20,10 +20,9 @@
     <form class="form-busqueda" action="<%=request.getContextPath()%>/catalogo" method="get">
         <select name="materia" class="select-materia">
             <option value="">Todas las materias</option>
-            <% if (materias != null) {
-                for (String m : materias) { %>
+            <% for (String m : materias) { %>
                 <option value="<%=m%>" <%=m.equals(materia) ? "selected" : ""%>><%=m%></option>
-            <% } } %>
+            <% } %>
         </select>
         <button type="submit" class="btn-buscar">Filtrar</button>
         <% if (!materia.isEmpty()) { %>
@@ -47,10 +46,6 @@
             String estado = libro.getEstado();
             String etiqueta = estado.equals("disp") ? "Disponible" : estado.equals("prest") ? "Prestado" : "No disponible";
             String claseEstado = estado.equals("disp") ? "estado-disp" : estado.equals("prest") ? "estado-prest" : "estado-bloq";
-            int disponibles = 0;
-            for (model.Ejemplar e : libro.getEjemplares()) {
-                if (e.getEstado().equals("disp")) disponibles++;
-            }
     %>
         <div class="tarjeta-libro">
             <div class="libro-info">
@@ -60,48 +55,17 @@
             </div>
             <div class="libro-estado">
                 <span class="<%=claseEstado%>"><%=etiqueta%></span>
-                <span class="libro-ejemplares"><%=disponibles%> / <%=libro.getNumEjemplares()%> disponibles</span>
                 <% if (userCat != null && estado.equals("disp")) { %>
                     <% if (limitePrestamos) { %>
                         <span class="limite-prestamos">Límite de préstamos alcanzado</span>
                     <% } else { %>
-                        <button type="button" class="btn-prestamo"
-                            onclick="abrirConfirmacion(<%=libro.getIdLibro()%>, '<%=libro.getTitulo().replace("'", "\\'")%>')">
-                            Pedir préstamo
-                        </button>
+                        <form action="<%=request.getContextPath()%>/prestamo" method="post">
+                            <input type="hidden" name="idLibro" value="<%=libro.getIdLibro()%>">
+                            <button type="submit" class="btn-prestamo">Pedir préstamo</button>
+                        </form>
                     <% } %>
                 <% } %>
             </div>
         </div>
-    <%  } } %>
+    <% } } %>
 </div>
-
-<div class="modal fade" id="modalConfirmar" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="border: none; border-radius: 6px;">
-            <div class="modal-header" style="background-color: #1B2A4A; border-radius: 6px 6px 0 0;">
-                <h5 class="modal-title" style="color: #F5F0E8; font-weight: 400;">Confirmar préstamo</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body" style="padding: 24px 30px; background-color: #F5F0E8;">
-                <p style="color: #1B2A4A; font-size: 14px; margin-bottom: 6px;">¿Quieres pedir prestado el libro:</p>
-                <p id="tituloConfirmar" style="color: #1B2A4A; font-size: 15px; font-weight: 600; margin-bottom: 0;"></p>
-            </div>
-            <div class="modal-footer" style="background-color: #F5F0E8; border-top: 1px solid #ddd; padding: 12px 30px;">
-                <form id="formConfirmar" action="<%=request.getContextPath()%>/prestamo" method="post">
-                    <input type="hidden" id="inputIdLibro" name="idLibro" value="">
-                    <button type="button" class="btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn-modal">Confirmar</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-function abrirConfirmacion(idLibro, titulo) {
-    document.getElementById("inputIdLibro").value = idLibro;
-    document.getElementById("tituloConfirmar").textContent = titulo;
-    new bootstrap.Modal(document.getElementById("modalConfirmar")).show();
-}
-</script>

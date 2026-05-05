@@ -52,11 +52,13 @@ public class CatalogoController extends HttpServlet {
                 psCount.close();
             }
 
-            ResultSet rsMat = con.prepareStatement("SELECT DISTINCT materia FROM libro ORDER BY materia").executeQuery();
+            PreparedStatement psMat = con.prepareStatement("SELECT DISTINCT materia FROM libro ORDER BY materia");
+            ResultSet rsMat = psMat.executeQuery();
             while (rsMat.next()) {
                 materias.add(rsMat.getString("materia"));
             }
             rsMat.close();
+            psMat.close();
 
             String sql;
             PreparedStatement ps;
@@ -118,7 +120,4 @@ public class CatalogoController extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
 }

@@ -1,8 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Usuario {
 
     private int idUsuario;
@@ -10,8 +7,6 @@ public class Usuario {
     private String DNI;
     private String password;
     private String cuentaBanco;
-    private Historico historico;
-    private List<ListaEspera> listaEspera;
 
     public Usuario(int idUsuario, String nombre, String DNI, String password, String cuentaBanco) {
         this.idUsuario = idUsuario;
@@ -19,7 +14,6 @@ public class Usuario {
         this.DNI = DNI;
         this.password = password;
         this.cuentaBanco = cuentaBanco;
-        this.listaEspera = new ArrayList<>();
     }
 
     public int getIdUsuario() {
@@ -62,19 +56,4 @@ public class Usuario {
         this.cuentaBanco = cuentaBanco;
     }
 
-    public Historico getHistorico() {
-        return historico;
-    }
-
-    public void setHistorico(Historico historico) {
-        this.historico = historico;
-    }
-
-    public List<ListaEspera> getListaEspera() {
-        return listaEspera;
-    }
-
-    public void addListaEspera(ListaEspera listaEspera) {
-        this.listaEspera.add(listaEspera);
-    }
 }

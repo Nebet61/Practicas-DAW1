@@ -5,7 +5,6 @@ public class Ejemplar {
     private int idEjemplar;
     private String codigo;
     private String estado;
-    private Prestamo prestamoActual;
 
     public Ejemplar(int idEjemplar, String codigo, String estado) {
         this.idEjemplar = idEjemplar;
@@ -37,11 +36,4 @@ public class Ejemplar {
         this.estado = estado;
     }
 
-    public Prestamo getPrestamoActual() {
-        return prestamoActual;
-    }
-
-    public void setPrestamoActual(Prestamo prestamoActual) {
-        this.prestamoActual = prestamoActual;
-    }
 }
