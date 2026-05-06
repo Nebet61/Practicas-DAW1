@@ -100,7 +100,7 @@
                 <form id="formPrestamo" action="<%=request.getContextPath()%>/prestamo" method="post">
                     <input type="hidden" id="inputIdLibro" name="idLibro" value="">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-dark" id="btnAbrirConfirmacion">Siguiente</button>
+                    <button type="button" class="btn btn-dark" onclick="abrirConfirmacion()">Siguiente</button>
                 </form>
             </div>
         </div>
@@ -116,13 +116,11 @@
             </div>
             <div class="modal-body">
                 Vas a pedir prestado el libro: <strong><span id="modalTitulo2"></span></strong>
-            </div>
-             <div class="modal-body">
-                Tendras 30 dias para devolverlo, en caso de algun inconveniente porfavor, contacta con la biblioteca
+                <br><small>Tendrás 30 días para devolverlo. Si tienes algún problema contacta con la biblioteca.</small>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-dark" id="btnConfirmarFinal">Confirmar</button>
+                <button type="button" class="btn btn-dark" onclick="confirmarPrestamo()">Confirmar</button>
             </div>
         </div>
     </div>
@@ -134,15 +132,15 @@ document.getElementById('modalPrestamo').addEventListener('show.bs.modal', funct
     document.getElementById('modalTitulo').textContent = e.relatedTarget.getAttribute('data-titulo');
 });
 
-document.getElementById('btnAbrirConfirmacion').addEventListener('click', function() {
+function abrirConfirmacion() {
     document.getElementById('modalTitulo2').textContent = document.getElementById('modalTitulo').textContent;
     bootstrap.Modal.getInstance(document.getElementById('modalPrestamo')).hide();
     new bootstrap.Modal(document.getElementById('modalConfirmacion')).show();
-});
+}
 
-document.getElementById('btnConfirmarFinal').addEventListener('click', function() {
+function confirmarPrestamo() {
     document.getElementById('formPrestamo').submit();
-});
+}
 
 setInterval(function() {
     var btn = document.getElementById('btn-filtrar');
