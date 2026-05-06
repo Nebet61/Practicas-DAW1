@@ -94,14 +94,35 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                Libro: <span id="modalTitulo"></span>
+                Estas apunto de pedir el Libro: <span id="modalTitulo"></span>
             </div>
             <div class="modal-footer">
-                <form action="<%=request.getContextPath()%>/prestamo" method="post">
+                <form id="formPrestamo" action="<%=request.getContextPath()%>/prestamo" method="post">
                     <input type="hidden" id="inputIdLibro" name="idLibro" value="">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-dark">Confirmar</button>
+                    <button type="button" class="btn btn-dark" id="btnAbrirConfirmacion">Siguiente</button>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalConfirmacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">¿Estás seguro?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Vas a pedir prestado el libro: <strong><span id="modalTitulo2"></span></strong>
+            </div>
+             <div class="modal-body">
+                Tendras 30 dias para devolverlo, en caso de algun inconveniente porfavor, contacta con la biblioteca
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-dark" id="btnConfirmarFinal">Confirmar</button>
             </div>
         </div>
     </div>
@@ -111,6 +132,16 @@
 document.getElementById('modalPrestamo').addEventListener('show.bs.modal', function(e) {
     document.getElementById('inputIdLibro').value = e.relatedTarget.getAttribute('data-id');
     document.getElementById('modalTitulo').textContent = e.relatedTarget.getAttribute('data-titulo');
+});
+
+document.getElementById('btnAbrirConfirmacion').addEventListener('click', function() {
+    document.getElementById('modalTitulo2').textContent = document.getElementById('modalTitulo').textContent;
+    bootstrap.Modal.getInstance(document.getElementById('modalPrestamo')).hide();
+    new bootstrap.Modal(document.getElementById('modalConfirmacion')).show();
+});
+
+document.getElementById('btnConfirmarFinal').addEventListener('click', function() {
+    document.getElementById('formPrestamo').submit();
 });
 
 setInterval(function() {

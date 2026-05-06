@@ -66,11 +66,11 @@ public class CatalogoController extends HttpServlet {
             PreparedStatement ps;
 
             if (!materia.isEmpty()) {
-                sql = "SELECT * FROM libro WHERE materia = ?";
+                sql = "SELECT * FROM libro WHERE materia = ? ORDER BY (SELECT COUNT(*) FROM ejemplar WHERE id_libro = libro.id_libro AND estado = 'disp') DESC, titulo";
                 ps = con.prepareStatement(sql);
                 ps.setString(1, materia);
             } else {
-                sql = "SELECT * FROM libro";
+                sql = "SELECT * FROM libro ORDER BY (SELECT COUNT(*) FROM ejemplar WHERE id_libro = libro.id_libro AND estado = 'disp') DESC, titulo";
                 ps = con.prepareStatement(sql);
             }
 
@@ -106,17 +106,6 @@ public class CatalogoController extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        Collections.sort(libros, new Comparator<Libro>() {
-            public int compare(Libro a, Libro b) {
-                int pa = 0, pb = 0;
-                if (a.getEstado().equals("prest")) pa = 1;
-                if (a.getEstado().equals("bloq")) pa = 2;
-                if (b.getEstado().equals("prest")) pb = 1;
-                if (b.getEstado().equals("bloq")) pb = 2;
-                return pa - pb;
-            }
-        });
 
         request.setAttribute("libros", libros);
         request.setAttribute("materias", materias);
