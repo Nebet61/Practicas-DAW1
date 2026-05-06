@@ -14,10 +14,17 @@
     <a href="<%=request.getContextPath()%>/catalogo" class="btn-catalogo">Ver catálogo</a>
 </section>
 
-<section class="servicios">
+<section class="servicios d-flex">
+
+<div style="overflow: hidden; height: 480px; width: 940px; position: relative; border-radius: 20px;">
+	<iframe style="position: absolute; top: -60px; width: 100%; height: calc(100% + 60px); border: none;"
+		src="https://www.google.com/maps/d/embed?mid=1dxGL5x9348WFfipF_tqxWAvcQiV4SVc&ehbc=2E312F"></iframe>
+</div>
+
+
     <div class="container" style="max-width: 640px;">
         <div class="accordion accordion-flush" id="acordeonServicios">
-
+		<h1 class="mb-5">¿Como funciona?</h1>
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#servicio1">
@@ -59,4 +66,7 @@
 
         </div>
     </div>
+    
+    
 </section>
+

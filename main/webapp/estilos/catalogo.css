@@ -112,10 +112,6 @@
     border-radius: 30px;
 }
 
-.sin-resultados {
-    grid-column: 1 / -1;
-}
-
 .tarjeta-libro {
     display: flex;
     flex-direction: column;

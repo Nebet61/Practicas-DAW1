@@ -40,7 +40,11 @@
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 */
 
-
+.mapa {
+	margin-left: 25%;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
 
 .portada {
     background-image: linear-gradient(rgba(27, 42, 74, 0.75), rgba(27, 42, 74, 0.75)), url('../src/Foto libros.jpg');
