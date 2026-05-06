@@ -94,7 +94,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                Estas apunto de pedir el Libro: <span id="modalTitulo"></span>
+                Estas apunto de pedir el Libro: "<strong><span id="modalTitulo"></span></strong>"
             </div>
             <div class="modal-footer">
                 <form id="formPrestamo" action="<%=request.getContextPath()%>/prestamo" method="post">
@@ -115,7 +115,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                Vas a pedir prestado el libro: <strong><span id="modalTitulo2"></span></strong>
+                Vas a pedir prestado el libro: "<strong><span id="modalTitulo2"></span></strong>"
                 <br><small>Tendrás 30 días para devolverlo. Si tienes algún problema contacta con la biblioteca.</small>
             </div>
             <div class="modal-footer">
